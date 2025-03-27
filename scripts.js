@@ -24,3 +24,29 @@ function getHumanChoice(){
     console.log(prompt("show me your gang sign"));
 }
 
+function playRound(humanChoice, computerChoice){
+    humanChoice = humanChoice.toLowerCase();
+    let playerOutcome;
+    let winner;
+    let loser;
+
+    if ((humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")) {
+            playerOutcome = "win";
+            winner = humanChoice;
+            loser = computerChoice;
+            humanScore++;
+        }
+    else if (humanChoice === computerChoice) {
+        console.log("Draw!");
+    }
+    else {
+        playerOutcome = "lose";
+        winner = computerChoice;
+        loser = humanChoice;
+        computerChoice++;
+    }
+
+    console.log(`You ${playerOutcome}! ${winner} beat ${loser}`);
+}
