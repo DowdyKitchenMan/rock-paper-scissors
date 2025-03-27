@@ -1,9 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
-
 function getComputerChoice(){
     let randomInt = Math.floor(Math.random() * 3);
 
@@ -53,4 +50,10 @@ function playRound(humanChoice, computerChoice){
     }
 
     console.log(`You ${playerOutcome}! ${winner} beat ${loser}.`);
+}
+
+function playGame(){
+    for (i = 0; i < 5; ++i){
+        playRound(getHumanChoice(), getComputerChoice());
+    }
 }
