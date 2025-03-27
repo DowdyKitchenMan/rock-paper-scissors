@@ -1,6 +1,9 @@
 let humanScore = 0;
 let computerScore = 0;
 
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+
 function getComputerChoice(){
     let randomInt = Math.floor(Math.random() * 3);
 
@@ -21,7 +24,7 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    console.log(prompt("show me your gang sign"));
+    return(prompt("show me your gang sign"));
 }
 
 function playRound(humanChoice, computerChoice){
@@ -40,13 +43,14 @@ function playRound(humanChoice, computerChoice){
         }
     else if (humanChoice === computerChoice) {
         console.log("Draw!");
+        return;
     }
     else {
         playerOutcome = "lose";
         winner = computerChoice;
         loser = humanChoice;
-        computerChoice++;
+        computerScore++;
     }
 
-    console.log(`You ${playerOutcome}! ${winner} beat ${loser}`);
+    console.log(`You ${playerOutcome}! ${winner} beat ${loser}.`);
 }
